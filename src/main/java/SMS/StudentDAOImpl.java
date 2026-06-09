@@ -3,7 +3,8 @@ package SMS;
 import com.mysql.cj.protocol.Resultset;
 
 import java.sql.*;
-public class StudentDAOImpl implements StudentDAO{A
+public class StudentDAOImpl implements StudentDAO{
+
     @Override
     public void addStudent(Student s){      // add_Student;
 
@@ -69,6 +70,26 @@ public class StudentDAOImpl implements StudentDAO{A
     @Override
     public void searchStudent(int id){
 
+        try{
+            Connection con = DBConnection.getConnection();
+
+            PreparedStatement ps = con.prepareStatement("SELECT *FROM student WHERE id = ?");
+
+            ps.setInt(1,id);
+
+            ResultSet resultSet = ps.executeQuery();
+
+            while(resultSet.next()){
+                System.out.println(
+                        resultSet.getInt(1)+ " " +
+                                resultSet.getString(2)+ " " +
+                                resultSet.getString(3)
+                );
+            }
+        }
+          catch(Exception e){
+            e.printStackTrace();
+          }
     }
 
 }
