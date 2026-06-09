@@ -37,6 +37,34 @@ public class Main {
                     );
 
                     break;
+
+                case 2:
+                    dao.viewStudent();
+                    break;
+
+                case 3:
+                    System.out.print("Enter id:- ");
+                     id = scan.nextInt();
+                dao.searchStudent(id);
+                break;
+
+                case 4:
+                    System.out.print("New ID:- ");
+                    id = scan.nextInt();
+
+                    System.out.print("Enter new Student Name:- ");
+                    name = scan.nextLine();
+
+                    System.out.print("New City:- ");
+                    city = scan.nextLine();
+                    dao.updateStudent(id,name,city);
+                    break;
+
+                case 5:
+                    System.out.print("Enter id:- ");
+                    id = scan.nextInt();
+
+
             }
         }
 

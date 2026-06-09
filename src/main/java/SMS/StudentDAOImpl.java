@@ -115,4 +115,24 @@ public class StudentDAOImpl implements StudentDAO{
             e.printStackTrace();
         }
     }
+
+    //:-------------------------------------------------Delete Student:---------------------------------------------------:
+    public void deleteStudent(int id){
+
+        try{
+            Connection con = DBConnection.getConnection();
+
+            PreparedStatement ps = con.prepareStatement("DELETE FROM student WHERE id = ?");
+
+            ps.setInt(1,id);
+
+          int rows = ps.executeUpdate();
+          System.out.println(rows+ " Student Deleted");
+
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 }
