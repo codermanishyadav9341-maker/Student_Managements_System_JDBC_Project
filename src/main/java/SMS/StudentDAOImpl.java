@@ -86,10 +86,33 @@ public class StudentDAOImpl implements StudentDAO{
                                 resultSet.getString(3)
                 );
             }
+            con.close();
         }
           catch(Exception e){
             e.printStackTrace();
           }
     }
 
+    //---------------------------------------------Update Student:----------------------------------------------------;
+    @Override
+    public void updateStudent(int id ,String name,String city){
+
+        try{
+            Connection con = DBConnection.getConnection();
+
+            PreparedStatement ps = con.prepareStatement("UPDATE student SET city = ? WHERE id = ?");
+
+            ps.setString(1,city);
+            ps.setInt(2,id);
+
+            ps.executeUpdate();
+
+            System.out.println("Update Student");
+
+            con.close();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
 }

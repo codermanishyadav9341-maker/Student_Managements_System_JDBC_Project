@@ -10,6 +10,6 @@ public interface StudentDAO {
 
     void updateStudent(int id, String name,String city);
 
-    void deleteStudent(int id);
+   // void deleteStudent(int id);
 
 }
