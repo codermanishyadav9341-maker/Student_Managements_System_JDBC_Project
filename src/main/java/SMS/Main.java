@@ -8,6 +8,37 @@ public class Main {
         StudentDAO dao = new StudentDAOImpl();
         while(true){
 
+            System.out.println(":---------------------:STUDENT MANAGEMENTS SYSTEM:------------------------:");
+            System.out.println("1.Add Student");
+            System.out.println("2.View Student");
+            System.out.println("3.Search Student");
+            System.out.println("4.Update Student");
+            System.out.println("5.Delete Student");
+            System.out.println("5.Exit");
+
+
+            System.out.print("Enter Choice:- ");
+            int choice = scan.nextInt();
+
+            switch(choice){
+                case 1:
+                    System.out.print("Enter ID:- ");
+                    int id = scan.nextInt();
+                    scan.nextLine();
+
+                    System.out.print("Enter Student Name:- ");
+                    String name = scan.nextLine();
+
+                    System.out.print("Enter City:- ");
+                    String city = scan.nextLine();
+
+                    dao.addStudent(
+                            new Student(id,name,city)
+                    );
+
+                    break;
+            }
         }
+
     }
 }
